@@ -96,3 +96,13 @@ class SqlDbConf(metaclass=BaseMetaConf):
 
 class ListenTaskConf(metaclass=BaseMetaConf):
     PERIOD_MINTUES: int
+
+# 原有 SqlDbConf 保留，新增以下内容
+class SqlServerDbConf(metaclass=BaseMetaConf):
+    DATABASE: str = 'bigdata'  # 对应 SQL Server 的 bigdata 库
+    USER: str
+    PASSWORD: str
+    SERVER: str  # SQL Server 地址（IP/主机名）
+    DRIVER: str = '{ODBC Driver 17 for SQL Server}'  # ODBC 驱动
+    POOL_SIZE: int = 5  # 连接池大小
+    STALE_TIMEOUT: int = 300  # 连接超时时间

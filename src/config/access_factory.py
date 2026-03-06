@@ -7,9 +7,9 @@ from dash_view.application.task_ import task_mgmt, task_log
 from dash_view.application.setting_ import notify_api, listen_api
 
 ################## 【开始】此处导入您的应用 ###################
-from dash_view.application.example_app import subapp1, subapp2
+from dash_view.application.example_app import subapp1, subapp2,subapp3,fs_speed_show
 
-apps = [subapp2, subapp1]
+apps = [subapp1,subapp2, subapp3,fs_speed_show]
 
 ################## 【结束】此处导入您的应用 ###################
 

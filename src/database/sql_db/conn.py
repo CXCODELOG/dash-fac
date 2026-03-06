@@ -1,8 +1,8 @@
-from config.dashgo_conf import SqlDbConf
+from config.dashgo_conf import SqlDbConf, SqlServerDbConf
 from playhouse.pool import PooledMySQLDatabase
-from peewee import SqliteDatabase
+from peewee import SqliteDatabase,Database
 from playhouse.shortcuts import ReconnectMixin
-
+import pyodbc  # 直接引入pyodbc，兜底原生连接
 
 if SqlDbConf.RDB_TYPE == 'mysql':
     # 断线重连+连接池
@@ -36,6 +36,33 @@ def db():
     else:
         raise NotImplementedError('Unsupported database type')
 
+
+class SqlServerDB:
+    """pyodbc 原生连接封装（接口与 Peewee 对齐）"""
+    _instance = None
+
+    @classmethod
+    def get_db_instance(cls):
+        if not cls._instance:
+            # 构建 SQL Server 连接字符串
+            conn_str = (
+                f"DRIVER={SqlServerDbConf.DRIVER};"
+                f"SERVER={SqlServerDbConf.SERVER};"
+                f"DATABASE={SqlServerDbConf.DATABASE};"
+                f"UID={SqlServerDbConf.USER};"
+                f"PWD={SqlServerDbConf.PASSWORD};"
+            )
+            # 创建连接池（简单版，按需扩展）
+            cls._instance = pyodbc.connect(conn_str, autocommit=True)
+        return cls._instance
+
+    # 模拟 Peewee 的 connection_context 方法（保持接口一致）
+    def connection_context(self):
+        return self.get_db_instance()
+
+def sqlserver_db():
+    """pyodbc 方式获取 SQL Server 连接"""
+    return SqlServerDB.get_db_instance()
 
 # 判断是否存在SysUser表，如不存在则初始化库
 def create_rds_table():
