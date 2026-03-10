@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ad8dbaf-efee-48be-9a88-01e6e3c95044" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dash_view/application/example_app/fs_speed_show.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dash_view/application/example_app/subapp3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/database/sql_db/dao/dao_sqlserver.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/database/sql_db/entity/table_fs_speed.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dash_view/application/example_app/precious_metals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dash_view/application/example_app/precious_metals_v2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dash_view/application/example_app/subapp4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config/access_factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/access_factory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/dashgo.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/dashgo.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/dashgo_conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/dashgo_conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dash_view/application/example_app/subapp1.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/example_app/subapp1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/sql_db/conn.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/sql_db/conn.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +26,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PerforceDirect.Settings">
-    <option name="CHARSET" value="无" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -41,21 +34,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.app.executor&quot;: &quot;Run&quot;,
-    &quot;Python.app_apscheduler.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/TJW/code/python&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.app.executor": "Run",
+    "Python.app_apscheduler.executor": "Run",
+    "Python.subapp4.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/TJW/code/python",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Python.app">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Plotly-DashGo" />
@@ -103,9 +97,33 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="subapp4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Plotly-DashGo" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/dash_view/application/example_app" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/dash_view/application/example_app/subapp4.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.app" />
+        <item itemvalue="Python.subapp4" />
         <item itemvalue="Python.app_apscheduler" />
       </list>
     </recent_temporary>
@@ -129,7 +147,8 @@
       <workItem from="1772075264737" duration="4197000" />
       <workItem from="1772088675925" duration="19817000" />
       <workItem from="1772323945578" duration="13808000" />
-      <workItem from="1772496419599" duration="12912000" />
+      <workItem from="1772496419599" duration="18789000" />
+      <workItem from="1773015303650" duration="16935000" />
     </task>
     <servers />
   </component>
@@ -149,6 +168,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Plotly_DashGo$app_apscheduler.coverage" NAME="app_apscheduler 覆盖结果" MODIFIED="1772175043966" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/Plotly_DashGo$app.coverage" NAME="app 覆盖结果" MODIFIED="1772699635603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Plotly_DashGo$app.coverage" NAME="app 覆盖结果" MODIFIED="1773114347454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Plotly_DashGo$subapp4.coverage" NAME="subapp4 覆盖结果" MODIFIED="1773041193535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/dash_view/application/example_app" />
   </component>
 </project>
