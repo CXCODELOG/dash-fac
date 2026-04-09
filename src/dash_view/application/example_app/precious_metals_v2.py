@@ -8,7 +8,7 @@ import feffery_antd_charts as fact
 from dash import html, Input, Output, callback, callback_context, State, no_update
 import uuid
 import akshare as ak
-import pandas as pd
+import pdpractice as pd
 
 # 二级菜单配置
 title = '贵金属价格监控v2'

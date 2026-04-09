@@ -8,8 +8,11 @@ from dash_view.application.setting_ import notify_api, listen_api
 
 ################## 【开始】此处导入您的应用 ###################
 from dash_view.application.example_app import subapp1, subapp2,subapp3,fs_speed_show,precious_metals
+from dash_view.application.honor import honor_person
+from dash_view.application.train import train_teach
+from dash_view.application.talent_pool import talent_pool_factory
 
-apps = [subapp1,subapp2, subapp3,fs_speed_show,precious_metals]
+apps = [subapp1,subapp2, subapp3,fs_speed_show,precious_metals,honor_person,train_teach,talent_pool_factory]
 
 ################## 【结束】此处导入您的应用 ###################
 
@@ -65,6 +68,9 @@ class AccessFactory:
         '任务日志-页面',
         '通知接口-页面',
         '监听接口-页面',
+        '个人荣誉-页面',
+        '培训教学授课-页面',
+        '工厂优秀人才库-页面'
     )
 
     # 内置可以分配的权限

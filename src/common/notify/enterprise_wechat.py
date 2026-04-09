@@ -14,7 +14,7 @@ def wechat_key(key='key1'):
 # 说明：只支持@1个人/不支持@all；@对象为企业微信英文名，英文名不区分大小写；若@对象无此人仍正常推送消息内容；
 # 系统：适用于 Windows、Linux 系统环境下的Python3版本。
 def wechat_markdown(top='', title='', content='', user='', links={}, df_links={}, show_cols=False, key=None):
-    import pandas as pd
+    import pdpractice as pd
     import requests, json, re
 
     if key == None:

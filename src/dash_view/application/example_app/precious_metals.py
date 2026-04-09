@@ -8,7 +8,6 @@ import feffery_antd_charts as fact
 from dash import html, dcc, Input, Output, callback, callback_context, State, no_update
 import uuid
 import akshare as ak
-import pandas as pd
 
 # 二级菜单配置
 title = '贵金属价格监控'
@@ -30,7 +29,7 @@ METAL_OPTIONS = [
 DEFAULT_METALS = ['XAU', 'XPT', 'XAG']
 COLOR_MAP = {'XAU': '#FFD700', 'XPT': '#E5E4E2', 'XAG': '#C0C0C0'}
 NAME_MAP = {'XAU': '黄金', 'XPT': '铂金', 'XAG': '白银'}
-METAL_TICKER_MAP = {'XAU': 'AU0', 'XPT': 'PT0', 'XAG': 'AG0'}
+METAL_TICKER_MAP = {'XAU': 'AU0', 'XPT': 'pt0', 'XAG': 'AG0'}
 KLINE_PERIOD = '60'
 
 
@@ -52,75 +51,62 @@ def get_hourly_metal_data(start_datetime, end_datetime, metals):
         start_datetime = datetime.now() - timedelta(days=7)
     if not end_datetime:
         end_datetime = datetime.now()
-
     logger.info(f'获取小时级数据：时间范围[{start_datetime}~{end_datetime}]，金属{metals}')
     all_data = []
     latest_prices = {}
-
     for metal in metals:
         ticker = METAL_TICKER_MAP.get(metal)
         if not ticker:
             logger.warning(f'无对应合约代码：{metal}')
             continue
-
         try:
             logger.info(f'调用小时级接口：ak.futures_zh_minute_sina(symbol={ticker}, period={KLINE_PERIOD})')
             df = ak.futures_zh_minute_sina(symbol=ticker, period=KLINE_PERIOD)
-
             if df.empty:
                 logger.warning(f'{NAME_MAP[metal]}无小时级数据')
                 MessageManager.warning(content=f'{NAME_MAP[metal]}暂无小时级真实数据')
                 continue
-
             if 'datetime' not in df.columns or 'close' not in df.columns:
                 logger.warning(f'{NAME_MAP[metal]}数据缺少必要列')
                 continue
-
             df = df.dropna(subset=['datetime', 'close']).copy()
             if df.empty:
                 logger.warning(f'{NAME_MAP[metal]}清洗后无有效数据')
                 continue
-
             df['datetime'] = pd.to_datetime(df['datetime'], errors='coerce')
             df = df.dropna(subset=['datetime']).copy()
             mask = (df['datetime'] >= start_datetime) & (df['datetime'] <= end_datetime)
             df_filtered = df.loc[mask].copy()
-
             if df_filtered.empty:
                 logger.warning(f'{NAME_MAP[metal]}在指定时间范围无数据')
                 MessageManager.warning(
                     content=f'{NAME_MAP[metal]}暂无{start_datetime.strftime("%Y-%m-%d %H:%M")}~{end_datetime.strftime("%Y-%m-%d %H:%M")}的小时级数据')
                 continue
-
-            # 保存最新价格
+            # 修正后：单位转换逻辑（仅白银需÷1000，黄金、铂金原生为元/克）
             latest_row = df_filtered.iloc[-1]
             latest_close = latest_row['close']
             if metal == 'XAG':
                 latest_prices[metal] = round(latest_close / 1000, 4)
-            else:
+            else:  # XAU、XPT均为元/克，无需转换
                 latest_prices[metal] = round(latest_close, 4)
 
-            # 格式化图表数据
+            # 修正后：图表数据单位转换
             for _, row in df_filtered.iterrows():
                 time_str = row['datetime'].strftime('%Y-%m-%d %H:%M')
                 close_price = row['close']
-
                 if metal == 'XAG':
                     price_cny_per_gram = round(close_price / 1000, 4)
-                else:
+                else:  # XAU、XPT均为元/克，无需转换
                     price_cny_per_gram = round(close_price, 4)
-
                 all_data.append({
                     'datetime': time_str,
                     'metal': NAME_MAP[metal],
                     'price': price_cny_per_gram
                 })
-
         except Exception as e:
             logger.error(f'获取{NAME_MAP[metal]}数据失败：{e}', exc_info=True)
             MessageManager.error(content=f'获取{NAME_MAP[metal]}小时级数据失败：{str(e)}')
             continue
-
     all_data.sort(key=lambda x: x['datetime'])
     logger.info(f'获取到{len(all_data)}条有效数据，最新价格：{latest_prices}')
     return all_data, latest_prices
@@ -555,7 +541,6 @@ def handle_pm_actions(query_clicks, reset_clicks, time_range, metals, buy_info):
     # 查询操作
     if trigger_id == 'pm-query-btn' and query_clicks > 0:
         logger.info(f'执行数据查询，买入记录：{buy_info}')
-
         start_datetime = datetime.now() - timedelta(days=7)
         end_datetime = datetime.now()
 

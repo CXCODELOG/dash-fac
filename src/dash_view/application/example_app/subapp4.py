@@ -2,7 +2,7 @@
 import dash
 from dash import dcc, html, dash_table
 from dash.dependencies import Input, Output
-import pandas as pd
+import pdpractice as pd
 import plotly.express as px
 
 # 1. 初始化Dash应用（相当于创建一个空白网页）
