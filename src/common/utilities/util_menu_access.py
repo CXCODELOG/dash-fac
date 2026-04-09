@@ -75,7 +75,7 @@ class MenuAccess:
             menu_hierarchy = menu_item.split('.')
             add_to_nested_dict(json_menu_item_access_meta, menu_hierarchy, access_meta)
         # json_menu_item_access_meta:
-        # {'task_': {'task_mgmt': ['任务管理-页面'], 'task_log': ['任务日志-页面']}, 'example_app': {'subapp2': ['应用2-基础权限', '应用2-权限1', '应用2-权限2'], 'subapp1': ['应用1-基础权限', '应用1-权限1', '应用1-权限2']}}
+        # {'patent': {'task_mgmt': ['任务管理-页面'], 'task_log': ['任务日志-页面']}, 'example_app': {'subapp2': ['应用2-基础权限', '应用2-权限1', '应用2-权限2'], 'subapp1': ['应用1-基础权限', '应用1-权限1', '应用1-权限2']}}
 
         # 根据 order 属性排序目录
         def sort_nested_dict(nested_dict, parent_key=''):
@@ -188,7 +188,7 @@ class MenuAccess:
             menu_hierarchy = per_menu_item.split('.')
             add_to_nested_dict(nested_menu, menu_hierarchy)
         # nested_menu:
-        # {'dashboard_': {'workbench': {}, 'monitor': {}}, 'setting_': {'notify_api': {}, 'listen_api': {}}, 'example_app': {'subapp2': {}, 'subapp1': {}}, 'task_': {'task_mgmt': {}, 'task_log': {}}, 'access_': {'role_mgmt': {}, 'group_mgmt': {}, 'user_mgmt': {}}, 'person_': {'personal_info': {}}, 'message_': {'announcement': {}}}
+        # {'dashboard_': {'workbench': {}, 'monitor': {}}, 'setting_': {'notify_api': {}, 'listen_api': {}}, 'example_app': {'subapp2': {}, 'subapp1': {}}, 'patent': {'task_mgmt': {}, 'task_log': {}}, 'access_': {'role_mgmt': {}, 'group_mgmt': {}, 'user_mgmt': {}}, 'competition': {'personal_info': {}}, 'paper': {'announcement': {}}}
 
         # 根据 order 属性排序嵌套字典
         def sort_nested_dict(nested_dict, parent_key=''):
@@ -206,7 +206,7 @@ class MenuAccess:
 
         sorted_menu = sort_nested_dict(nested_menu)
         # sorted_menu:
-        # {'dashboard_': {'workbench': {}, 'monitor': {}}, 'example_app': {'subapp2': {}, 'subapp1': {}}, 'message_': {'announcement': {}}, 'access_': {'role_mgmt': {}, 'user_mgmt': {}, 'group_mgmt': {}}, 'task_': {'task_mgmt': {}, 'task_log': {}}, 'person_': {'personal_info': {}}, 'setting_': {'notify_api': {}, 'listen_api': {}}}
+        # {'dashboard_': {'workbench': {}, 'monitor': {}}, 'example_app': {'subapp2': {}, 'subapp1': {}}, 'paper': {'announcement': {}}, 'access_': {'role_mgmt': {}, 'user_mgmt': {}, 'group_mgmt': {}}, 'patent': {'task_mgmt': {}, 'task_log': {}}, 'competition': {'personal_info': {}}, 'setting_': {'notify_api': {}, 'listen_api': {}}}
 
         # 生成菜单结构
         def generate_menu_structure(nested_dict, parent_path=''):

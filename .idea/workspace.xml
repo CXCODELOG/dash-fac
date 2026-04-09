@@ -5,26 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ad8dbaf-efee-48be-9a88-01e6e3c95044" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dash_view/application/example_app/1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dash_view/application/honor/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dash_view/application/honor/honor_person.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dash_view/application/talent_pool/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dash_view/application/talent_pool/talent_pool_factory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dash_view/application/train/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dash_view/application/train/train_teach.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dash_view/application/personal_information/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dash_view/application/personal_information/personal_list.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/notify/enterprise_wechat.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/notify/enterprise_wechat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/utilities/util_menu_access.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/utilities/util_menu_access.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config/access_factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/access_factory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dash_view/application/access_/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/access_/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dash_callback/application/task_/task_mgmt_c.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_callback/application/task_/task_mgmt_c.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dash_view/application/dashboard_/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/dashboard_/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dash_view/application/example_app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/example_app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dash_view/application/example_app/precious_metals.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/example_app/precious_metals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dash_view/application/example_app/precious_metals_v2.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/example_app/precious_metals_v2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dash_view/application/example_app/subapp4.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/example_app/subapp4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dash_view/application/message_/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/message_/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dash_view/application/person_/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/person_/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dash_view/application/setting_/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/setting_/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dash_view/application/task_/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/task_/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dash_view/application/message_/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/paper/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dash_view/application/message_/announcement.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/paper/announcement.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dash_view/application/person_/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/competition/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dash_view/application/person_/personal_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/competition/personal_info.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dash_view/application/task_/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/patent/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dash_view/application/task_/task_log.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/patent/task_log.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dash_view/application/task_/task_mgmt.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/patent/task_mgmt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dash_view/framework/head.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/framework/head.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +64,7 @@
     "Python.subapp4.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/TJW/code/python/CX/fac/Plotly-DashGo/src/dash_view/application/talent_pool",
+    "last_opened_file_path": "D:/TJW/code/python/CX/fac/Plotly-DashGo/src/dash_view/application/personal_information",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -81,6 +76,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\TJW\code\python\CX\fac\Plotly-DashGo\src\dash_view\application\personal_information" />
+      <recent name="D:\TJW\code\python\CX\fac\Plotly-DashGo\src\dash_view\application\personal_information " />
       <recent name="D:\TJW\code\python\CX\fac\Plotly-DashGo\src\dash_view\application\talent_pool" />
       <recent name="D:\TJW\code\python\CX\fac\Plotly-DashGo\src\dash_view\application\train" />
       <recent name="D:\TJW\code\python\CX\fac\Plotly-DashGo\src\dash_view\application\honor" />
@@ -236,7 +233,7 @@
       <workItem from="1773277873553" duration="21375000" />
       <workItem from="1773707641260" duration="6820000" />
       <workItem from="1773804794483" duration="3632000" />
-      <workItem from="1775701146575" duration="1349000" />
+      <workItem from="1775701146575" duration="2808000" />
     </task>
     <servers />
   </component>
@@ -256,7 +253,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Plotly_DashGo$app_apscheduler.coverage" NAME="app_apscheduler 覆盖结果" MODIFIED="1772175043966" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/Plotly_DashGo$app.coverage" NAME="app 覆盖结果" MODIFIED="1775702281798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Plotly_DashGo$app.coverage" NAME="app 覆盖结果" MODIFIED="1775703827213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/Plotly_DashGo$subapp4.coverage" NAME="subapp4 覆盖结果" MODIFIED="1773041193535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/dash_view/application/example_app" />
     <SUITE FILE_PATH="coverage/Plotly_DashGo$precious_metals.coverage" NAME="precious_metals 覆盖结果" MODIFIED="1773707701560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/dash_view/application/example_app" />
     <SUITE FILE_PATH="coverage/Plotly_DashGo$1.coverage" NAME="1 覆盖结果" MODIFIED="1773304481245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/dash_view/application/example_app" />

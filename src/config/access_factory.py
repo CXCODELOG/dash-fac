@@ -1,9 +1,9 @@
 # 本应用的权限工厂，此处手动导入应用模块 - 内置应用，请勿修改
 from dash_view.application.access_ import role_mgmt, user_mgmt, group_auth, group_mgmt
 from dash_view.application.dashboard_ import workbench, monitor
-from dash_view.application.person_ import personal_info
-from dash_view.application.message_ import announcement
-from dash_view.application.task_ import task_mgmt, task_log
+from dash_view.application.competition import personal_info
+from dash_view.application.paper import announcement
+from dash_view.application.patent import task_mgmt, task_log
 from dash_view.application.setting_ import notify_api, listen_api
 
 ################## 【开始】此处导入您的应用 ###################
@@ -11,8 +11,9 @@ from dash_view.application.example_app import subapp1, subapp2,subapp3,fs_speed_
 from dash_view.application.honor import honor_person
 from dash_view.application.train import train_teach
 from dash_view.application.talent_pool import talent_pool_factory
+from dash_view.application.personal_information import personal_list
 
-apps = [subapp1,subapp2, subapp3,fs_speed_show,precious_metals,honor_person,train_teach,talent_pool_factory]
+apps = [subapp1,subapp2, subapp3,fs_speed_show,precious_metals,honor_person,train_teach,talent_pool_factory,personal_list]
 
 ################## 【结束】此处导入您的应用 ###################
 
@@ -70,7 +71,8 @@ class AccessFactory:
         '监听接口-页面',
         '个人荣誉-页面',
         '培训教学授课-页面',
-        '工厂优秀人才库-页面'
+        '工厂优秀人才库-页面',
+        '员工花名册-页面'
     )
 
     # 内置可以分配的权限

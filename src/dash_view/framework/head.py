@@ -171,7 +171,7 @@ def callback_func(nClicks, clickedKey):
         set_props('global-reload', {'reload': True})
         return dash.no_update
     elif clickedKey == '个人信息':
-        return '/person_/personal_info'
+        return '/competition/personal_info'
     return PreventUpdate
 
 

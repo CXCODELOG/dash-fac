@@ -183,7 +183,7 @@ def show_modal(nClicks, nClicks_, nClicks__, nClicksButton, clickedCustom, recen
         trigger = recentlyButtonClickedRow['trigger']
         return True, t__task('编辑任务') + '⠆' + job_id, trigger  # ⠆特殊盲文符号，用于对编辑任务的识别，并且不影响阅读
     elif dash.ctx.triggered_id == 'task-mgmt-table' and clickedCustom.startswith('view'):
-        set_props('main-dcc-url', {'pathname': '/task_/task_log'})
+        set_props('main-dcc-url', {'pathname': '/patent/task_log'})
         job_id = clickedCustom.split(':', 1)[-1]
         set_props('main-task-mgmt-jump-to-task-log-job-id-store', {'data': job_id})
         return dash.no_update
