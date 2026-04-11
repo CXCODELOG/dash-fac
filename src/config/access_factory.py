@@ -11,9 +11,9 @@ from dash_view.application.example_app import subapp1, subapp2,subapp3,fs_speed_
 from dash_view.application.honor import honor_person
 from dash_view.application.train import train_teach
 from dash_view.application.talent_pool import talent_pool_factory
-from dash_view.application.Evaluation import personal_list
+from dash_view.application.Evaluation import personal_list,education,qualification,professional,work_experience,annual_assessment,party_member,emergency_contact
 
-apps = [subapp1,subapp2, subapp3,fs_speed_show,precious_metals,honor_person,train_teach,talent_pool_factory,personal_list]
+apps = [subapp1,subapp2, subapp3,fs_speed_show,precious_metals,honor_person,train_teach,talent_pool_factory,personal_list,education,qualification,professional,work_experience,annual_assessment,party_member,emergency_contact]
 
 ################## 【结束】此处导入您的应用 ###################
 
@@ -72,7 +72,14 @@ class AccessFactory:
         '个人荣誉-页面',
         '培训教学授课-页面',
         '工厂优秀人才库-页面',
-        '员工花名册-页面'
+        '员工花名册-页面',
+        '学历学位-页面',
+        '专业技术资格-页面',
+        '职业资格-页面',
+        '工作经历-页面',
+        '年度考核-页面',
+        '党员基本信息-页面',
+        '紧急联系人-页面'
     )
 
     # 内置可以分配的权限

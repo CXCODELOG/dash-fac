@@ -11,11 +11,11 @@ import random
 from datetime import date
 
 # 二级菜单的标题、图标和显示顺序
-title = '员工花名册'
+title = '年度考核'
 icon = None
 logger = Log.get_logger(__name__)
-order = 1
-access_metas = ('员工花名册-页面',)
+order = 6
+access_metas = ('年度考核-页面',)
 
 
 # ---------------------- 模拟数据 ----------------------
@@ -35,7 +35,7 @@ df_employee = get_employee_data()
 
 # ---------------------- 核心渲染 ----------------------
 def render_content(menu_access: MenuAccess, **kwargs):
-    if not menu_access.has_access('员工花名册-页面'):
+    if not menu_access.has_access('年度考核-页面'):
         return fac.AntdResult(status='403', title='无权限', subTitle='请联系管理员')
 
     return fac.AntdFlex(
@@ -44,7 +44,7 @@ def render_content(menu_access: MenuAccess, **kwargs):
             fac.AntdRow(
                 [fac.AntdCol(
                     fac.AntdInput(
-                        id='emp-search-input',
+                        id='ann-search-input',
                         placeholder='姓名/政治面貌/手机号',
                         allowClear=True,
                         style={'width': '100%'}
@@ -55,7 +55,7 @@ def render_content(menu_access: MenuAccess, **kwargs):
 
             # 表格（0.4.5 兼容写法）
             fac.AntdTable(
-                id='emp-info-table',
+                id='ann-info-table',
                 columns=[
                             {'title': col, 'dataIndex': col, 'key': col, 'align': 'center'}
                             for col in df_employee.columns
@@ -77,9 +77,9 @@ def render_content(menu_access: MenuAccess, **kwargs):
 
             # 详情弹窗
             fac.AntdModal(
-                id='emp-detail-modal', title='员工详情', width=700, maskClosable=False,
+                id='ann-detail-modal', title='员工详情', width=700, maskClosable=False,
                 children=[
-                    fac.AntdDescriptions(id='emp-detail-descriptions', bordered=True, column=2, layout='vertical')]
+                    fac.AntdDescriptions(id='ann-detail-descriptions', bordered=True, column=2, layout='vertical')]
             )
         ],
         vertical=True, style={'width': '100%', 'padding': 20}
@@ -95,7 +95,7 @@ def format_table_data(data):
 
 
 # ---------------------- 回调 ----------------------
-@callback(Output('emp-info-table', 'data'), Input('emp-search-input', 'value'))
+@callback(Output('ann-info-table', 'data'), Input('ann-search-input', 'value'))
 def filter_emp(search_val):
     if not search_val:
         return format_table_data(df_employee.to_dict('records'))
@@ -106,8 +106,8 @@ def filter_emp(search_val):
 
 
 @callback(
-    [Output('emp-detail-modal', 'visible'), Output('emp-detail-descriptions', 'items')],
-    [Input('emp-info-table', 'nClicksButton'), Input('emp-info-table', 'recentlyButtonClickedRow')],
+    [Output('ann-detail-modal', 'visible'), Output('ann-detail-descriptions', 'items')],
+    [Input('ann-info-table', 'nClicksButton'), Input('ann-info-table', 'recentlyButtonClickedRow')],
     # 修复：用recentlyButtonClickedRow获取行数据
     prevent_initial_call=True
 )

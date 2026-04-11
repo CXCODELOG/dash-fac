@@ -11,21 +11,29 @@ import random
 from datetime import date
 
 # 二级菜单的标题、图标和显示顺序
-title = '员工花名册'
+title = '职业资格'
 icon = None
 logger = Log.get_logger(__name__)
-order = 1
-access_metas = ('员工花名册-页面',)
+order = 4
+access_metas = ('职业资格-页面',)
 
 
 # ---------------------- 模拟数据 ----------------------
 def get_employee_data():
     return pd.DataFrame([
         {
-            "厂编号": "001155", "员工姓名": "胡婕", "出生日期": "1995-03-20", "参加工作日期": "2025-07-13",
-            "手机号码": "13800138003", "民族": "彝族",
-            "性别": "女", "预计退休年龄": 55, "籍贯": "云南省大理市", "出生地": "云南省昆明市",
-            "岗位": "滤棒成型车间", "政治面貌": "共青团员", "加入该政治面貌时间": "2012-05-04"
+            "员工姓名": "胡婕",
+            "职业技能类别": "特有工种",
+            "职业技能名称":"卷烟卷接设备机械修理工	",
+            "适用职业资格等级制度":"",
+            "证书标识等级":"",
+            "对应职业技能五级制等级级别":"二级",
+            "是否最高职业技能等级":"否",
+            "取得职业技能等级日期":"2005-02-22",
+            "职业技能等级授予单位":"国家烟草专卖局职业技能鉴定（指导）中心	",
+            "证书编号":"0572003006200019",
+            "证书复审截止日期":"",
+            "备注":"是"
         }
     ])
 
@@ -35,7 +43,7 @@ df_employee = get_employee_data()
 
 # ---------------------- 核心渲染 ----------------------
 def render_content(menu_access: MenuAccess, **kwargs):
-    if not menu_access.has_access('员工花名册-页面'):
+    if not menu_access.has_access('职业资格-页面'):
         return fac.AntdResult(status='403', title='无权限', subTitle='请联系管理员')
 
     return fac.AntdFlex(
@@ -44,7 +52,7 @@ def render_content(menu_access: MenuAccess, **kwargs):
             fac.AntdRow(
                 [fac.AntdCol(
                     fac.AntdInput(
-                        id='emp-search-input',
+                        id='pro-search-input',
                         placeholder='姓名/政治面貌/手机号',
                         allowClear=True,
                         style={'width': '100%'}
@@ -55,7 +63,7 @@ def render_content(menu_access: MenuAccess, **kwargs):
 
             # 表格（0.4.5 兼容写法）
             fac.AntdTable(
-                id='emp-info-table',
+                id='pro-info-table',
                 columns=[
                             {'title': col, 'dataIndex': col, 'key': col, 'align': 'center'}
                             for col in df_employee.columns
@@ -77,9 +85,9 @@ def render_content(menu_access: MenuAccess, **kwargs):
 
             # 详情弹窗
             fac.AntdModal(
-                id='emp-detail-modal', title='员工详情', width=700, maskClosable=False,
+                id='pro-detail-modal', title='员工详情', width=700, maskClosable=False,
                 children=[
-                    fac.AntdDescriptions(id='emp-detail-descriptions', bordered=True, column=2, layout='vertical')]
+                    fac.AntdDescriptions(id='pro-detail-descriptions', bordered=True, column=2, layout='vertical')]
             )
         ],
         vertical=True, style={'width': '100%', 'padding': 20}
@@ -95,7 +103,7 @@ def format_table_data(data):
 
 
 # ---------------------- 回调 ----------------------
-@callback(Output('emp-info-table', 'data'), Input('emp-search-input', 'value'))
+@callback(Output('pro-info-table', 'data'), Input('pro-search-input', 'value'))
 def filter_emp(search_val):
     if not search_val:
         return format_table_data(df_employee.to_dict('records'))
@@ -106,8 +114,8 @@ def filter_emp(search_val):
 
 
 @callback(
-    [Output('emp-detail-modal', 'visible'), Output('emp-detail-descriptions', 'items')],
-    [Input('emp-info-table', 'nClicksButton'), Input('emp-info-table', 'recentlyButtonClickedRow')],
+    [Output('pro-detail-modal', 'visible'), Output('pro-detail-descriptions', 'items')],
+    [Input('pro-info-table', 'nClicksButton'), Input('pro-info-table', 'recentlyButtonClickedRow')],
     # 修复：用recentlyButtonClickedRow获取行数据
     prevent_initial_call=True
 )

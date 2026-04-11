@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ad8dbaf-efee-48be-9a88-01e6e3c95044" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dash_view/application/Evaluation/personal_list.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dash_view/application/Evaluation/annual_assessment.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dash_view/application/Evaluation/education.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dash_view/application/Evaluation/emergency_contact.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dash_view/application/Evaluation/party_member.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dash_view/application/Evaluation/professional.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dash_view/application/Evaluation/qualification.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dash_view/application/Evaluation/work_experience.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config/access_factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/access_factory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dash_components/card.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_components/card.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dash_view/application/example_app/precious_metals.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/example_app/precious_metals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dash_view/application/personal_information/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/Evaluation/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dash_view/application/personal_information/personal_list.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dash_view/application/Evaluation/personal_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dash_view/application/Evaluation/personal_list.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +41,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PerforceDirect.Settings">
+    <option name="CHARSET" value="无" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -226,7 +231,7 @@
       <workItem from="1773277873553" duration="21375000" />
       <workItem from="1773707641260" duration="6820000" />
       <workItem from="1773804794483" duration="3632000" />
-      <workItem from="1775701146575" duration="19371000" />
+      <workItem from="1775701146575" duration="34849000" />
     </task>
     <servers />
   </component>
@@ -246,7 +251,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Plotly_DashGo$app_apscheduler.coverage" NAME="app_apscheduler 覆盖结果" MODIFIED="1772175043966" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/Plotly_DashGo$app.coverage" NAME="app 覆盖结果" MODIFIED="1775865851865" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Plotly_DashGo$app.coverage" NAME="app 覆盖结果" MODIFIED="1775889521946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/Plotly_DashGo$subapp4.coverage" NAME="subapp4 覆盖结果" MODIFIED="1773041193535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/dash_view/application/example_app" />
     <SUITE FILE_PATH="coverage/Plotly_DashGo$precious_metals.coverage" NAME="precious_metals 覆盖结果" MODIFIED="1773707701560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/dash_view/application/example_app" />
     <SUITE FILE_PATH="coverage/Plotly_DashGo$1.coverage" NAME="1 覆盖结果" MODIFIED="1773304481245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/dash_view/application/example_app" />
