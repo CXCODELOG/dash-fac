@@ -10,13 +10,14 @@ from dash_view.pages import main, login
 from common.utilities.util_menu_access import MenuAccess
 from common.exception import NotFoundUserException
 from common.utilities.util_logger import Log
+from config.dashgo_conf import LoginConf
 import dash
 from yarl import URL
 import sys
 
 logger = Log.get_logger(__name__)
 
-# 检查Python运行版本
+# 检查python运行版本
 if sys.version_info < (3, 9):
     raise Exception('Python version must above 3.9 !!')
 
@@ -66,6 +67,26 @@ def handle_root_router_error(e):
     )
 
 
+def _build_login_response(to_path_qs):
+    return (
+        login.render_content(),
+        '/login',
+        URL.build(query={'to': to_path_qs}).__str__() if to_path_qs else dash.no_update,
+    )
+
+
+def _build_main_response(user_name, href):
+    menu_access = MenuAccess(user_name)
+    return (
+        main.render_content(
+            menu_access=menu_access,
+            href=href,
+        ),
+        dash.no_update,
+        dash.no_update,
+    )
+
+
 @app.callback(
     [
         Output('root-container', 'children'),
@@ -79,7 +100,7 @@ def handle_root_router_error(e):
 def root_router(href):
     """判断是登录还是未登录"""
     parsed_url = URL(href)
-    if parsed_url.path in ('/login', '/dashboard_/workbench'):  # 登录和首页不保留
+    if parsed_url.path in ('/login', '/dashboard_/workbench'):  # Login and home are not persisted
         to_path_qs = None
     else:
         if 'to' in parsed_url.query:
@@ -89,38 +110,29 @@ def root_router(href):
 
     rt_access = util_authorization.auth_validate(verify_exp=True)
     if isinstance(rt_access, util_jwt.AccessFailType):
-        return (
-            login.render_content(),
-            '/login',
-            URL.build(query={'to': to_path_qs}).__str__() if to_path_qs else dash.no_update,
-        )
-    else:
-        try:
-            menu_access = MenuAccess(rt_access['user_name'])
-        # 找不到该授权用户
-        except NotFoundUserException as e:
-            logger.warning(e.message)
-            util_jwt.clear_access_token_from_session()
-            return (
-                login.render_content(),
-                '/login',
-                URL.build(query={'to': to_path_qs}).__str__() if to_path_qs else dash.no_update,
-            )
-        # # 如果session是永久，也就是用户登录勾选了保存会话，刷新jwt令牌，继续延长令牌有效期
-        # if session.permanent:
-        #     util_jwt.jwt_encode_save_access_to_session({'user_name': rt_access['user_name']}, session_permanent=True)
-        return (
-            main.render_content(
-                # 获取用户菜单权限，根据权限初始化主页内容
-                menu_access=menu_access,
-                href=href,
-            ),
-            dash.no_update,
-            dash.no_update,
-        )
+        if LoginConf.AUTO_LOGIN_ENABLED:
+            try:
+                util_jwt.jwt_encode_save_access_to_session({'user_name': LoginConf.AUTO_LOGIN_USER})
+                return _build_main_response(LoginConf.AUTO_LOGIN_USER, href)
+            except NotFoundUserException as e:
+                logger.warning(e.message)
+        return _build_login_response(to_path_qs)
+
+    try:
+        return _build_main_response(rt_access['user_name'], href)
+    except NotFoundUserException as e:
+        logger.warning(e.message)
+        util_jwt.clear_access_token_from_session()
+        if LoginConf.AUTO_LOGIN_ENABLED:
+            try:
+                util_jwt.jwt_encode_save_access_to_session({'user_name': LoginConf.AUTO_LOGIN_USER})
+                return _build_main_response(LoginConf.AUTO_LOGIN_USER, href)
+            except NotFoundUserException as auto_login_error:
+                logger.warning(auto_login_error.message)
+        return _build_login_response(to_path_qs)
 
 
-# 如果首次加载，更新中继url
+# Initialize relay URL on first load
 app.clientside_callback(
     """
         (href,trigger) => {
@@ -140,7 +152,7 @@ app.clientside_callback(
 )
 
 app.clientside_callback(
-    # 初始化vscode editor配置
+    # Initialize vscode editor config
     """
         (id) => {
         const script = document.createElement('script');

@@ -48,6 +48,8 @@ class LoginConf(metaclass=BaseMetaConf):
     VERIFY_CODE_SHOW_LOGIN_FAIL_COUNT: int = 5
     VERIFY_CODE_CHAR_NUM: int = 4
     JWT_EXPIRED_FORCE_LOGOUT: bool = False
+    AUTO_LOGIN_ENABLED: bool = False
+    AUTO_LOGIN_USER: str = 'admin'
 
 
 class FlaskConf(metaclass=BaseMetaConf):
