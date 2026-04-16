@@ -18,14 +18,16 @@ class MenuAccess:
 
         user_info: dao_user.UserInfo = user_info
         user_name = user_info.user_name
-        all_access_metas: Set[str] = dao_user.get_user_access_meta(user_name=user_name, exclude_disabled=True)
+        all_access_metas: Set[str] = dao_user.get_user_access_meta(
+            user_name=user_name, exclude_disabled=True)
         # 所有用户添加默认权限
         all_access_metas.update(AccessFactory.default_access_meta)
         # 团队管理员添加默认权限
         if dao_user.is_group_admin(user_name):
             all_access_metas.update(AccessFactory.group_access_meta)
         # 添加额外权限
-        all_access_metas.update(cls.get_extra_access_meta(user_info.user_roles))
+        all_access_metas.update(
+            cls.get_extra_access_meta(user_info.user_roles))
         return all_access_metas
 
     @staticmethod
@@ -67,13 +69,15 @@ class MenuAccess:
         for access_meta, menu_item in dict_access_meta2menu_item.items():
             # 此权限无需分配
             if (
-                access_meta in (*AccessFactory.default_access_meta, *AccessFactory.admin_access_meta, *AccessFactory.group_access_meta)
+                access_meta in (*AccessFactory.default_access_meta, *
+                                AccessFactory.admin_access_meta, *AccessFactory.group_access_meta)
                 and access_meta not in AccessFactory.assignable_access_meta
             ):
                 continue
             # 将菜单项按层级拆分
             menu_hierarchy = menu_item.split('.')
-            add_to_nested_dict(json_menu_item_access_meta, menu_hierarchy, access_meta)
+            add_to_nested_dict(json_menu_item_access_meta,
+                               menu_hierarchy, access_meta)
         # json_menu_item_access_meta:
         # {'patent': {'task_mgmt': ['任务管理-页面'], 'task_log': ['任务日志-页面']}, 'example_app': {'subapp2': ['应用2-基础权限', '应用2-权限1', '应用2-权限2'], 'subapp1': ['应用1-基础权限', '应用1-权限1', '应用1-权限2']}}
 
@@ -87,13 +91,16 @@ class MenuAccess:
             if isinstance(nested_dict, dict):
                 return dict(
                     sorted(
-                        {k: sort_nested_dict(v, f'{parent_key}.{k}' if parent_key else k) for k, v in nested_dict.items()}.items(),
-                        key=lambda x: MenuAccess.get_order.__func__(f'{parent_key}.{x[0]}' if parent_key else x[0]),
+                        {k: sort_nested_dict(v, f'{parent_key}.{k}' if parent_key else k)
+                         for k, v in nested_dict.items()}.items(),
+                        key=lambda x: MenuAccess.get_order.__func__(
+                            f'{parent_key}.{x[0]}' if parent_key else x[0]),
                     )
                 )
             return nested_dict
 
-        json_menu_item_access_meta = sort_nested_dict(json_menu_item_access_meta)
+        json_menu_item_access_meta = sort_nested_dict(
+            json_menu_item_access_meta)
 
         # 生成 Ant Design Tree 的格式
         def generate_antd_tree(nested_dict, parent_key=''):
@@ -141,12 +148,14 @@ class MenuAccess:
 
     @staticmethod
     def get_title(module_path):
-        module_page = importlib.import_module(f'dash_view.application.{module_path}')
+        module_page = importlib.import_module(
+            f'dash_view.application.{module_path}')
         return module_page.title
 
     @staticmethod
     def get_order(module_path):
-        module_page = importlib.import_module(f'dash_view.application.{module_path}')
+        module_page = importlib.import_module(
+            f'dash_view.application.{module_path}')
 
         try:
             return module_page.order
@@ -156,7 +165,8 @@ class MenuAccess:
 
     @staticmethod
     def get_icon(module_path):
-        module_page = importlib.import_module(f'dash_view.application.{module_path}')
+        module_page = importlib.import_module(
+            f'dash_view.application.{module_path}')
 
         try:
             return module_page.icon
@@ -199,8 +209,10 @@ class MenuAccess:
             """
             return dict(
                 sorted(
-                    {k: sort_nested_dict(v, f'{parent_key}.{k}' if parent_key else k) for k, v in nested_dict.items()}.items(),
-                    key=lambda x: cls.get_order(f'{parent_key}.{x[0]}' if parent_key else x[0]),
+                    {k: sort_nested_dict(v, f'{parent_key}.{k}' if parent_key else k)
+                     for k, v in nested_dict.items()}.items(),
+                    key=lambda x: cls.get_order(
+                        f'{parent_key}.{x[0]}' if parent_key else x[0]),
                 )
             )
 
@@ -228,7 +240,8 @@ class MenuAccess:
                     },
                 }
                 if value:  # 如果有子菜单，递归生成子菜单
-                    menu_item['children'] = generate_menu_structure(value, full_path)
+                    menu_item['children'] = generate_menu_structure(
+                        value, full_path)
                 else:  # 如果是叶子节点，添加 href 属性
                     menu_item['props']['href'] = full_path
                 menu.append(menu_item)
@@ -251,13 +264,22 @@ class MenuAccess:
         # 获取应用全部的权限元和菜单的对应关系
         self.user_name = user_name
         try:
-            self.user_info: dao_user.UserInfo = dao_user.get_user_info([user_name], exclude_disabled=True, exclude_role_admin=False)[0]
+            self.user_info: dao_user.UserInfo = dao_user.get_user_info(
+                [user_name], exclude_disabled=True, exclude_role_admin=False)[0]
         except IndexError:
-            raise NotFoundUserException(message=f'用户{user_name}尝试登录，但该用户不存在，可能已被删除')
+            raise NotFoundUserException(
+                message=f'用户{user_name}尝试登录，但该用户不存在，可能已被删除')
         # 用户所有的权限元
-        self.all_access_metas: Set[str] = self.get_user_all_access_metas(user_info=self.user_info)
+        self.all_access_metas: Set[str] = self.get_user_all_access_metas(
+            user_info=self.user_info)
         # 生成用户的目录路径
         self.menu_items = self.get_user_menu_items(self.all_access_metas)
+        # self.menu_items = {
+        #     'dashboard_.workbench',
+        #     'dashboard_.monitor',
+        #     'honor.honor_person'
+        # }
+
         # 生成AntdMenu的菜单格式
         self.menu = self.gen_menu(self.menu_items)
 

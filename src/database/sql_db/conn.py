@@ -1,4 +1,4 @@
-from config.dashgo_conf import SqlDbConf, SqlServerDbConf
+from config.dashgo_conf import SqlDbConf, SqlServerDbConf, TalentDbConf
 from playhouse.pool import PooledMySQLDatabase
 from peewee import SqliteDatabase,Database
 from playhouse.shortcuts import ReconnectMixin
@@ -63,6 +63,30 @@ class SqlServerDB:
 def sqlserver_db():
     """pyodbc 方式获取 SQL Server 连接"""
     return SqlServerDB.get_db_instance()
+
+
+class TalentPooledMySQLDatabase(ReconnectMixin, PooledMySQLDatabase):
+    _instance = None
+
+    @classmethod
+    def get_db_instance(cls):
+        if not cls._instance:
+            cls._instance = cls(
+                database=TalentDbConf.DATABASE,
+                max_connections=TalentDbConf.POOL_SIZE,
+                user=TalentDbConf.USER,
+                password=TalentDbConf.PASSWORD,
+                host=TalentDbConf.HOST,
+                port=TalentDbConf.PORT,
+                stale_timeout=TalentDbConf.STALE_TIMEOUT,
+                charset='utf8mb4',
+            )
+        return cls._instance
+
+
+def talent_db():
+    """Get the external talent MySQL database connection."""
+    return TalentPooledMySQLDatabase.get_db_instance()
 
 # 判断是否存在SysUser表，如不存在则初始化库
 def create_rds_table():

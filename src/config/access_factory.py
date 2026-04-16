@@ -11,7 +11,7 @@ from dash_view.application.example_app import subapp1, subapp2,subapp3,fs_speed_
 from dash_view.application.honor import honor_person
 from dash_view.application.train import train_teach
 from dash_view.application.talent_pool import talent_pool_factory
-from dash_view.application.Evaluation import personal_list,education,qualification,professional,work_experience,annual_assessment,party_member,emergency_contact
+from dash_view.application.basic_information import personal_list,education,qualification,professional,work_experience,annual_assessment,party_member,emergency_contact
 
 apps = [subapp1,subapp2, subapp3,fs_speed_show,precious_metals,honor_person,train_teach,talent_pool_factory,personal_list,education,qualification,professional,work_experience,annual_assessment,party_member,emergency_contact]
 

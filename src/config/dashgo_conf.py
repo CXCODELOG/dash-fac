@@ -108,3 +108,13 @@ class SqlServerDbConf(metaclass=BaseMetaConf):
     DRIVER: str = '{ODBC Driver 17 for SQL Server}'  # ODBC 驱动
     POOL_SIZE: int = 5  # 连接池大小
     STALE_TIMEOUT: int = 300  # 连接超时时间
+
+
+class TalentDbConf(metaclass=BaseMetaConf):
+    HOST: str
+    PORT: int = 3306
+    USER: str
+    PASSWORD: str
+    DATABASE: str
+    POOL_SIZE: int = 5
+    STALE_TIMEOUT: int = 300
