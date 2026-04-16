@@ -81,25 +81,25 @@ def render_head_content(menu_access: MenuAccess):
         fac.AntdCol(
             fac.AntdSpace(
                 [
-                    html.A(
-                        html.Img(src='https://img.shields.io/github/stars/luojiaaoo/DashGo.svg?style=social&label=Stars'),
-                        href='https://github.com/luojiaaoo/DashGo',
-                        target='_blank',
-                        style={
-                            'height': '100%',
-                            'alignItems': 'center',
-                        },
-                    ),
-                    html.A(
-                        html.Img(src='https://gitee.com/luojiaaoo/DashGo/badge/star.svg?theme=dark'),
-                        href='https://gitee.com/luojiaaoo/DashGo',
-                        target='_blank',
-                        style={
-                            'height': '100%',
-                            'alignItems': 'center',
-                            'marginRight': '40px',
-                        },
-                    ),
+                    # html.A(
+                    #     html.Img(src='https://img.shields.io/github/stars/luojiaaoo/DashGo.svg?style=social&label=Stars'),
+                    #     href='https://github.com/luojiaaoo/DashGo',
+                    #     target='_blank',
+                    #     style={
+                    #         'height': '100%',
+                    #         'alignItems': 'center',
+                    #     },
+                    # ),
+                    # html.A(
+                    #     html.Img(src='https://gitee.com/luojiaaoo/DashGo/badge/star.svg?theme=dark'),
+                    #     href='https://gitee.com/luojiaaoo/DashGo',
+                    #     target='_blank',
+                    #     style={
+                    #         'height': '100%',
+                    #         'alignItems': 'center',
+                    #         'marginRight': '40px',
+                    #     },
+                    # ),
                     fac.AntdBadge(
                         fac.AntdAvatar(
                             id='global-head-avatar',
@@ -141,7 +141,7 @@ def render_head_content(menu_access: MenuAccess):
                         title=t__default('全屏'),
                         placement='left',
                     ),
-                    render_lang_content(),
+                    # render_lang_content(),
                 ],
                 style={
                     'height': '100%',

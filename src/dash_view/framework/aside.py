@@ -13,9 +13,9 @@ def render_aside_content(menu_access: MenuAccess):
                 fac.AntdSpace(
                     [
                         fac.AntdImage(
-                            width=40,
+                            width=120,
                             height=40,
-                            src=get_asset_url('imgs/logo.png'),
+                            src=get_asset_url('imgs/china_tobacco.png'),
                             preview=False,
                         ),
                         fac.AntdText(
@@ -29,18 +29,27 @@ def render_aside_content(menu_access: MenuAccess):
                             },
                             # style={'display': 'None'},
                         ),
-                    ]
+                    ],
+                    direction='vertical',
+                    align='center',
+                    size=6,
+                    className={
+                        'width': '100%',
+                    },
                 ),
                 className={
-                    'height': '60px',
+                    'height': '100px',
                     'background': 'rgb( 43, 47, 58)',
                     'position': 'sticky',
                     'top': 0,
                     'zIndex': 999,
                     'paddingTop': '12px',
-                    'paddingLeft': '12px',
-                    'paddingRight': '20px',
+                    'paddingLeft': '0px',
+                    'paddingRight': '12px',
                     'paddingBottom': '12px',
+                    'display': 'flex',
+                    'justifyContent': 'center',
+                    'alignItems': 'center',
                 },
             ),
             # 目录
